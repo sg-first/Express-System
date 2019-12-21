@@ -21,10 +21,10 @@ void packagequery::on_pushButton_clicked()
     emit showMain();
 }
 
-void packagequery::on_pushButton_2_clicked()
+void packagequery::on_query_clicked()
 {
-    string s=ui->lineEdit->text().toStdString();
-    package* xr=dataOperation::queryPackage(s);
-    string result=xr->display();
-    QMessageBox::information(this,"该包裹信息",QString::fromStdString(result));
+    string code=ui->lineEdit->text().toStdString();
+    package* pack=dataOperation::queryPackage(code);
+    string result=pack->display();
+    //fix:使用只读文本框展示
 }
