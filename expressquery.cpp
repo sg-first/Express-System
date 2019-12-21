@@ -3,6 +3,7 @@
 #include "express.h"
 #include"dataOperation.h"
 #include<QMessageBox>
+
 expressquery::expressquery(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::expressquery)
@@ -18,13 +19,13 @@ expressquery::~expressquery()
 void expressquery::on_pushButton_clicked()
 {
     this->hide();
-    emit show_6();
+    emit showMain();
 }
 
-void expressquery::on_pushButton_2_clicked()
+void expressquery::on_query_clicked()
 {
-    string s=ui->lineEdit->text().toStdString();
-    express* xr=dataOperation::queryExpress(s);
-    string result=xr->getLogisticsInformation();
-    QMessageBox::information(this,"物流信息",QString::fromStdString(result));
+    string code=ui->lineEdit->text().toStdString();
+    express* e=dataOperation::queryExpress(code);
+    string result=e->getLogisticsInformation();
+    //fix:使用只读文本框展示
 }

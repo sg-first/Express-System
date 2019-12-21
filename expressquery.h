@@ -14,12 +14,13 @@ class expressquery : public QWidget
 public:
     explicit expressquery(QWidget *parent = nullptr);
     ~expressquery();
+
 signals:
-    void show_6();
+    void showMain();
+
 private slots:
     void on_pushButton_clicked();
-    
-    void on_pushButton_2_clicked();
+    void on_query_clicked();
     
 private:
     Ui::expressquery *ui;
