@@ -6,6 +6,8 @@
 #include "date.h"
 #include "dataOperation.h"
 #include <QMessageBox>
+#include "help.h"
+
 packagein::packagein(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::packagein)
@@ -20,29 +22,28 @@ packagein::~packagein()
 
 void packagein::on_pushButton_clicked()
 {
-    ui->lineEdit_7->clear();
-    ui->lineEdit->clear();
-    ui->lineEdit_2->clear();
-    ui->lineEdit_3->clear();
-    ui->lineEdit_4->clear();
-    ui->lineEdit_5->clear();
-    ui->lineEdit_6->clear();
+    ui->number->clear();
+    ui->fahuo->clear();
+    ui->shouhuo->clear();
+    ui->name->clear();
+    ui->value->clear();
+    ui->weight->clear();
+    ui->volume->clear();
 }
 
-void packagein::on_pushButton_2_clicked()
+void packagein::on_confirm_clicked()
 {
-string courierNumber=ui->lineEdit_7->text().toStdString();
-string consigner=ui->lineEdit->text().toStdString();
-string consignee=ui->lineEdit_2->text().toStdString();
-string name=ui->lineEdit_3->text().toStdString();
-float weight=ui->lineEdit_4->text().toFloat();
-float volume=ui->lineEdit_5->text().toFloat();
-float value=ui->lineEdit_6->text().toFloat();
-refreshTime();
-package temp=package(courierNumber,consigner,consignee,name, weight,volume,value,*dataOperation::systemTime);
-dataOperation::allPackage.push_back(temp);
-string pkup=temp.getPickupCode();
-QMessageBox::information(this,"取件码",QString::fromStdString(pkup));
+    string courierNumber=ui->number->text().toStdString();
+    string consigner=ui->fahuo->text().toStdString();
+    string consignee=ui->shouhuo->text().toStdString();
+    string name=ui->name->text().toStdString();
+    float weight=ui->weight->text().toFloat();
+    float volume=ui->volume->text().toFloat();
+    float value=ui->value->text().toFloat();
+    refreshTime();
+    package temp=package(courierNumber,consigner,consignee,name, weight,volume,value,*dataOperation::systemTime);
+    dataOperation::allPackage.push_back(temp);
+    help::msgbox(this,"取件码",help::toQStr(temp.getPickupCode()));
 }
 
 void refreshTime()
