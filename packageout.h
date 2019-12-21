@@ -17,10 +17,11 @@ public:
 
 private slots:
     void on_pushButton_clicked();
-    void on_pushButton_2_clicked();
+    void on_confirmOut_clicked();
 
 signals:
-    void show_2();
+    void showMain();
+
 private:
     Ui::packageout *ui;
 };

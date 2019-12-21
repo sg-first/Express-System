@@ -21,10 +21,10 @@ private slots:
     void on_pushButton_3_clicked();
 
 signals:
-    void show();
+    void showMain();
 private:
     Ui::packagein *ui;
 };
-void refresh();
+void refreshTime();
 
 #endif // PACKAGEIN_H

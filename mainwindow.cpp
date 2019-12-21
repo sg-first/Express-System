@@ -20,18 +20,18 @@ MainWindow::MainWindow(QWidget *parent)
     ui->label_9->installEventFilter(this);
     zt=new packagein ();
     xyt=new packageout ();
-     xr=new packagequery ();
-      xx=new packagecheck ();
-       jj=new expressmail ();
-       kk=new expressquery ();
-       ll=new unpaidquery ();
-    connect(zt,SIGNAL(show()),this,SLOT(showMainshow()));
-    connect(xyt,SIGNAL(show_2()),this,SLOT(showMainshow()));
-    connect(xr,SIGNAL(show_3()),this,SLOT(showMainshow()));
-    connect(xx,SIGNAL(show_4()),this,SLOT(showMainshow()));
-    connect(jj,SIGNAL(show_5()),this,SLOT(showMainshow()));
-    connect(kk,SIGNAL(show_6()),this,SLOT(showMainshow()));
-    connect(ll,SIGNAL(show_7()),this,SLOT(showMainshow()));
+    xr=new packagequery ();
+    xx=new packagecheck ();
+    jj=new expressmail ();
+    kk=new expressquery ();
+    ll=new unpaidquery ();
+    connect(zt,SIGNAL(showMain()),this,SLOT(showMainshow()));
+    connect(xyt,SIGNAL(showMain()),this,SLOT(showMainshow()));
+    connect(xr,SIGNAL(showMain()),this,SLOT(showMainshow()));
+    connect(xx,SIGNAL(showMain()),this,SLOT(showMainshow()));
+    connect(jj,SIGNAL(showMain()),this,SLOT(showMainshow()));
+    connect(kk,SIGNAL(showMain()),this,SLOT(showMainshow()));
+    connect(ll,SIGNAL(showMain()),this,SLOT(showMainshow()));
 
 }
 MainWindow::~MainWindow()

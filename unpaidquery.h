@@ -15,7 +15,7 @@ public:
     explicit unpaidquery(QWidget *parent = nullptr);
     ~unpaidquery();
 signals:
-    void show_7();
+    void showMain();
 private slots:
     void on_pushButton_clicked();
     

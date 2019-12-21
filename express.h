@@ -45,8 +45,8 @@ private:
     }
 
 public:
-    express(string consignor, string consignee, string name, float weight, float volume, float value, date sendingTime) :
-        expressBase(consignor,consignee,name,weight,volume,value)
+    express(string _consignor, string _consignee, string _name, float _weight, float _volume, float _value, date sendingTime) :
+        expressBase(_consignor,_consignee,_name,_weight,_volume,_value)
     {
         this->courierNumber=this->getCourierNumberFromNet(sendingTime);
     }

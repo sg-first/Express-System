@@ -15,7 +15,7 @@ public:
     explicit packagequery(QWidget *parent = nullptr);
     ~packagequery();
 signals:
-    void show_3();
+    void showMain();
 private slots:
     void on_pushButton_clicked();
 

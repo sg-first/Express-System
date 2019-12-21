@@ -16,5 +16,5 @@ unpaidquery::~unpaidquery()
 void unpaidquery::on_pushButton_clicked()
 {
     this->hide();
-    emit show_7();
+    emit showMain();
 }

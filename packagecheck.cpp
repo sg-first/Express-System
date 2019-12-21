@@ -23,5 +23,5 @@ packagecheck::~packagecheck()
 void packagecheck::on_pushButton_clicked()
 {
     this->hide();
-    emit show_4();
+    emit showMain();
 }

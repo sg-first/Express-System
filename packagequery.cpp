@@ -18,7 +18,7 @@ packagequery::~packagequery()
 void packagequery::on_pushButton_clicked()
 {
     this->hide();
-    emit show_3();
+    emit showMain();
 }
 
 void packagequery::on_pushButton_2_clicked()

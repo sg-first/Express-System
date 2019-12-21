@@ -33,6 +33,7 @@ HEADERS += \
     express.h \
     expressmail.h \
     expressquery.h \
+    help.h \
     mainwindow.h \
     packagecheck.h \
     packagein.h \

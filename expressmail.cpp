@@ -40,7 +40,7 @@ void expressmail::on_pushButton_2_clicked()
     float weight=ui->lineEdit_4->text().toFloat();
     float volume=ui->lineEdit_5->text().toFloat();
     float value=ui->lineEdit_6->text().toFloat();
-    refresh();
+    refreshTime();
     express temp=express(consigner,consignee,name, weight,volume,value,*dataOperation::systemTime);
     dataOperation::allExpress.push_back(temp);
     string expbill=temp.getExpressBill();

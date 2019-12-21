@@ -15,7 +15,7 @@ public:
     explicit packagecheck(QWidget *parent = nullptr);
     ~packagecheck();
 signals:
-    void show_4();
+    void showMain();
 private slots:
     void on_pushButton_clicked();
 

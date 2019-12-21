@@ -38,24 +38,27 @@ string name=ui->lineEdit_3->text().toStdString();
 float weight=ui->lineEdit_4->text().toFloat();
 float volume=ui->lineEdit_5->text().toFloat();
 float value=ui->lineEdit_6->text().toFloat();
-refresh();
+refreshTime();
 package temp=package(courierNumber,consigner,consignee,name, weight,volume,value,*dataOperation::systemTime);
 dataOperation::allPackage.push_back(temp);
 string pkup=temp.getPickupCode();
 QMessageBox::information(this,"取件码",QString::fromStdString(pkup));
 }
-void refresh()
+
+void refreshTime()
 {
-time_t timer;
-time(&timer);
-tm *t_tm=localtime(&timer);
-int year=t_tm->tm_year+1900;
-int month=t_tm->tm_mon+1;
-int day=t_tm->tm_mday;
-int hour=t_tm->tm_hour;
-int minute=t_tm->tm_min;
-dataOperation::systemTime->reSet(year,month,day,hour,minute);
+    //fix:获取系统时间建议改成QT形式
+    time_t timer;
+    time(&timer);
+    tm *t_tm=localtime(&timer);
+    int year=t_tm->tm_year+1900;
+    int month=t_tm->tm_mon+1;
+    int day=t_tm->tm_mday;
+    int hour=t_tm->tm_hour;
+    int minute=t_tm->tm_min;
+    dataOperation::systemTime->reSet(year,month,day,hour,minute);
 }
+
 void packagein::on_pushButton_3_clicked()
 {
     this->hide();

@@ -29,15 +29,6 @@ public:
     expressmail* jj;
     expressquery* kk;
     unpaidquery* ll;
-
-signals:
-    void show_2();
-    //void show();
-    void show_3();
-    void show_4();
-    void show_5();
-    void show_6();
-    void show_7();
     
 public slots:
     void showMainshow();
