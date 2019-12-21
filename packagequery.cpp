@@ -3,6 +3,7 @@
 #include"dataOperation.h"
 #include"express.h"
 #include"QMessageBox"
+
 packagequery::packagequery(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::packagequery)

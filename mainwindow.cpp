@@ -32,8 +32,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(_expressmail,SIGNAL(showMain()),this,SLOT(showMainshow()));
     connect(_expressquery,SIGNAL(showMain()),this,SLOT(showMainshow()));
     connect(_unpaidquery,SIGNAL(showMain()),this,SLOT(showMainshow()));
-
 }
+
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -47,65 +47,74 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *ev)
         {
             this->hide();
             _packagein->show();
+            return true;
         }
     }
-    if(obj==ui->label_4)
+    else if(obj==ui->label_4)
     {
         if(ev->type()==QEvent::MouseButtonPress)
         {
             this->hide();
             _packageout->show();
+            return true;
         }
     }
-    if(obj==ui->label_3)
+    else if(obj==ui->label_3)
     {
         if(ev->type()==QEvent::MouseButtonPress)
         {
             this->hide();
             _packagequery->show();
+            return true;
         }
     }
-    if(obj==ui->label_5)
+    else if(obj==ui->label_5)
     {
         if(ev->type()==QEvent::MouseButtonPress)
         {
             this->hide();
             _packagecheck->refresh();
             _packagecheck->show();
+            return true;
         }
     }
-    if(obj==ui->label_6)
+    else if(obj==ui->label_6)
     {
         if(ev->type()==QEvent::MouseButtonPress)
         {
             this->hide();
             _expressmail->show();
+            return true;
         }
     }
-    if(obj==ui->label_7)
+    else if(obj==ui->label_7)
     {
         if(ev->type()==QEvent::MouseButtonPress)
         {
             this->hide();
             _expressquery->show();
+            return true;
         }
     }
-    if(obj==ui->label_8)
+    else if(obj==ui->label_8)
     {
         if(ev->type()==QEvent::MouseButtonPress)
         {
             this->hide();
             _unpaidquery->refresh();
             _unpaidquery->show();
+            return true;
         }
     }
-    if(obj==ui->label_9)
+    else if(obj==ui->label_9)
     {
         if(ev->type()==QEvent::MouseButtonPress)
         {
 
+            return true;
         }
     }
+    return false;
 }
 
 void MainWindow::showMainshow()

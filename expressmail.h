@@ -14,14 +14,14 @@ class expressmail : public QWidget
 public:
     explicit expressmail(QWidget *parent = nullptr);
     ~expressmail();
+
 signals:
-    void show_5();
+    void showMain();
+
 private slots:
     void on_pushButton_clicked();
-
     void on_pushButton_3_clicked();
-
-    void on_pushButton_2_clicked();
+    void on_confirm_clicked();
 
 private:
     Ui::expressmail *ui;

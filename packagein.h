@@ -22,6 +22,7 @@ private slots:
 
 signals:
     void showMain();
+
 private:
     Ui::packagein *ui;
 };

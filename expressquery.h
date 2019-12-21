@@ -21,7 +21,7 @@ signals:
 private slots:
     void on_pushButton_clicked();
     void on_query_clicked();
-    
+
 private:
     Ui::expressquery *ui;
 };
