@@ -169,4 +169,3 @@ public:
 	
 	static date *knowday;
 };
-

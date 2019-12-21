@@ -51,11 +51,10 @@ public:
         return result;
     }
 
-    static date *systemTime;//fix:应实时获取？
+	static date *systemTime; //fix:应实时获取？
 
 	static void init()
 	{
 		date::knowday = new date;
 	}
 };
-
