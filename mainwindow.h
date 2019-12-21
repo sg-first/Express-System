@@ -22,13 +22,13 @@ public:
     MainWindow(QWidget *parent = nullptr);
     bool eventFilter(QObject *obj,QEvent *ev);
     ~MainWindow();
-    packagein* zt;
-    packageout* xyt;
-    packagequery* xr;
-    packagecheck* xx;
-    expressmail* jj;
-    expressquery* kk;
-    unpaidquery* ll;
+    packagein* _packagein;
+    packageout* _packageout;
+    packagequery* _packagequery;
+    packagecheck* _packagecheck;
+    expressmail* _expressmail;
+    expressquery* _expressquery;
+    unpaidquery* _unpaidquery;
     
 public slots:
     void showMainshow();

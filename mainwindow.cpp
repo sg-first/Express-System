@@ -18,20 +18,20 @@ MainWindow::MainWindow(QWidget *parent)
     ui->label_7->installEventFilter(this);
     ui->label_8->installEventFilter(this);
     ui->label_9->installEventFilter(this);
-    zt=new packagein ();
-    xyt=new packageout ();
-    xr=new packagequery ();
-    xx=new packagecheck ();
-    jj=new expressmail ();
-    kk=new expressquery ();
-    ll=new unpaidquery ();
-    connect(zt,SIGNAL(showMain()),this,SLOT(showMainshow()));
-    connect(xyt,SIGNAL(showMain()),this,SLOT(showMainshow()));
-    connect(xr,SIGNAL(showMain()),this,SLOT(showMainshow()));
-    connect(xx,SIGNAL(showMain()),this,SLOT(showMainshow()));
-    connect(jj,SIGNAL(showMain()),this,SLOT(showMainshow()));
-    connect(kk,SIGNAL(showMain()),this,SLOT(showMainshow()));
-    connect(ll,SIGNAL(showMain()),this,SLOT(showMainshow()));
+    _packagein=new packagein();
+    _packageout=new packageout();
+    _packagequery=new packagequery();
+    _packagecheck=new packagecheck();
+    _expressmail=new expressmail();
+    _expressquery=new expressquery();
+    _unpaidquery=new unpaidquery();
+    connect(_packagein,SIGNAL(showMain()),this,SLOT(showMainshow()));
+    connect(_packageout,SIGNAL(showMain()),this,SLOT(showMainshow()));
+    connect(_packagequery,SIGNAL(showMain()),this,SLOT(showMainshow()));
+    connect(_packagecheck,SIGNAL(showMain()),this,SLOT(showMainshow()));
+    connect(_expressmail,SIGNAL(showMain()),this,SLOT(showMainshow()));
+    connect(_expressquery,SIGNAL(showMain()),this,SLOT(showMainshow()));
+    connect(_unpaidquery,SIGNAL(showMain()),this,SLOT(showMainshow()));
 
 }
 MainWindow::~MainWindow()
@@ -46,7 +46,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *ev)
         if(ev->type()==QEvent::MouseButtonPress)
         {
             this->hide();
-            zt->show();
+            _packagein->show();
         }
     }
     if(obj==ui->label_4)
@@ -54,7 +54,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *ev)
         if(ev->type()==QEvent::MouseButtonPress)
         {
             this->hide();
-            xyt->show();
+            _packageout->show();
         }
     }
     if(obj==ui->label_3)
@@ -62,15 +62,16 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *ev)
         if(ev->type()==QEvent::MouseButtonPress)
         {
             this->hide();
-            xr->show();
+            _packagequery->show();
         }
     }
     if(obj==ui->label_5)
     {
         if(ev->type()==QEvent::MouseButtonPress)
         {
-           this->hide();
-           xx->show();
+            this->hide();
+            _packagecheck->refresh();
+            _packagecheck->show();
         }
     }
     if(obj==ui->label_6)
@@ -78,7 +79,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *ev)
         if(ev->type()==QEvent::MouseButtonPress)
         {
             this->hide();
-            jj->show();
+            _expressmail->show();
         }
     }
     if(obj==ui->label_7)
@@ -86,7 +87,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *ev)
         if(ev->type()==QEvent::MouseButtonPress)
         {
             this->hide();
-            kk->show();
+            _expressquery->show();
         }
     }
     if(obj==ui->label_8)
@@ -94,7 +95,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *ev)
         if(ev->type()==QEvent::MouseButtonPress)
         {
             this->hide();
-            ll->show();
+            _unpaidquery->show();
         }
     }
     if(obj==ui->label_9)

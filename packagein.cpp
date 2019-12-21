@@ -63,5 +63,5 @@ void refreshTime()
 void packagein::on_pushButton_3_clicked()
 {
     this->hide();
-    emit show();
+    emit showMain();
 }
