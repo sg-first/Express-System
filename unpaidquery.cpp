@@ -18,3 +18,8 @@ void unpaidquery::on_pushButton_clicked()
     this->hide();
     emit showMain();
 }
+
+void unpaidquery::refresh()
+{
+    //fix:查询所有未支付快递，显示在文本框中
+}

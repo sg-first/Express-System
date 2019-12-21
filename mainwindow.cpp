@@ -95,6 +95,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *ev)
         if(ev->type()==QEvent::MouseButtonPress)
         {
             this->hide();
+            _unpaidquery->refresh();
             _unpaidquery->show();
         }
     }

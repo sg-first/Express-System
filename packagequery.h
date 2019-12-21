@@ -14,12 +14,13 @@ class packagequery : public QWidget
 public:
     explicit packagequery(QWidget *parent = nullptr);
     ~packagequery();
+
 signals:
     void showMain();
+
 private slots:
     void on_pushButton_clicked();
-
-    void on_pushButton_2_clicked();
+    void on_query_clicked();
 
 private:
     Ui::packagequery *ui;

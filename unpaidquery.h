@@ -14,8 +14,11 @@ class unpaidquery : public QWidget
 public:
     explicit unpaidquery(QWidget *parent = nullptr);
     ~unpaidquery();
+    void refresh();
+
 signals:
     void showMain();
+
 private slots:
     void on_pushButton_clicked();
     
