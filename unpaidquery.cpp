@@ -1,6 +1,8 @@
 #include "unpaidquery.h"
 #include "ui_unpaidquery.h"
-
+#include "dataOperation.h"
+#include <list>
+#include "express.h"
 unpaidquery::unpaidquery(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::unpaidquery)
@@ -21,5 +23,12 @@ void unpaidquery::on_pushButton_clicked()
 
 void unpaidquery::refresh()
 {
+    QString result;
+    list<express*> l1=dataOperation::getAllUnpaidExpress();
+    for(express* e : l1)
+    {
+       result=result+( QString::fromStdString(e->getExpressBill())+"\n");
+    }
+    ui->textEdit->setText(result);
     //fix:查询所有未支付快递，显示在文本框中
 }

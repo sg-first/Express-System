@@ -11,6 +11,7 @@ packageout::packageout(QWidget *parent) :
     ui(new Ui::packageout)
 {
     ui->setupUi(this);
+    ui->lineEdit->setPlaceholderText("请输入取件码");
 }
 
 packageout::~packageout()
@@ -32,7 +33,7 @@ void packageout::on_confirmOut_clicked()
     if(pack!=nullptr)
     {
         refreshTime();
-        pack->outStock(*dataOperation::systemTime);
+        pack->outStock(refreshTime());
         help::msgbox(this,"包裹信息",qsCode+"出库成功");
         /*string result=pack->display();
         auto jj=QMessageBox::information(this,"包裹信息",QString::fromStdString(result),QMessageBox::Ok|QMessageBox::Cancel);

@@ -2,7 +2,7 @@
 #include "ui_packagein.h"
 #include "express.h"
 #include <QDebug>
-#include <ctime>
+#include <QDateTime>
 #include "date.h"
 #include "dataOperation.h"
 #include <QMessageBox>
@@ -13,6 +13,13 @@ packagein::packagein(QWidget *parent) :
     ui(new Ui::packagein)
 {
     ui->setupUi(this);
+    ui->number->setPlaceholderText("请输入快递单号");
+    ui->fahuo->setPlaceholderText("请输入发货人");
+    ui->shouhuo->setPlaceholderText("请输入收货人");
+    ui->name->setPlaceholderText("请输入名字");
+    ui->value->setPlaceholderText("请输入价格");
+    ui->weight->setPlaceholderText("请输入重量");
+    ui->volume->setPlaceholderText("请输入体积");
 }
 
 packagein::~packagein()
@@ -40,24 +47,21 @@ void packagein::on_confirm_clicked()
     float weight=ui->weight->text().toFloat();
     float volume=ui->volume->text().toFloat();
     float value=ui->value->text().toFloat();
-    refreshTime();
-    package temp=package(courierNumber,consigner,consignee,name, weight,volume,value,*dataOperation::systemTime);
+    package temp=package(courierNumber,consigner,consignee,name, weight,volume,value,refreshTime());
     dataOperation::allPackage.push_back(temp);
     help::msgbox(this,"取件码",help::toQStr(temp.getPickupCode()));
 }
 
-void refreshTime()
+date refreshTime()
 {
     //fix:获取系统时间建议改成QT形式
-    time_t timer;
-    time(&timer);
-    tm *t_tm=localtime(&timer);
-    int year=t_tm->tm_year+1900;
-    int month=t_tm->tm_mon+1;
-    int day=t_tm->tm_mday;
-    int hour=t_tm->tm_hour;
-    int minute=t_tm->tm_min;
-    dataOperation::systemTime->reSet(year,month,day,hour,minute);
+    QDateTime local(QDateTime::currentDateTime());
+    QString year=local.toString("yyyy");
+    QString month=local.toString("MM");
+    QString day=local.toString("dd");
+    QString hour=local.toString("hh");
+    QString minute=local.toString("mm");
+    return date(year.toInt(),month.toInt(),day.toInt(),hour.toInt(),minute.toInt());
 }
 
 void packagein::on_pushButton_3_clicked()

@@ -10,6 +10,12 @@ expressmail::expressmail(QWidget *parent) :
     ui(new Ui::expressmail)
 {
     ui->setupUi(this);
+    ui->fahuo->setPlaceholderText("输入发货人");
+    ui->shouhuo->setPlaceholderText("输入收货人");
+    ui->name->setPlaceholderText("输入名字");
+    ui->value->setPlaceholderText("输入价格");
+    ui->volum->setPlaceholderText("输入体积");
+    ui->weight->setPlaceholderText("输入重量");
 }
 
 expressmail::~expressmail()
@@ -41,9 +47,7 @@ void expressmail::on_confirm_clicked()
     float weight=ui->weight->text().toFloat();
     float volume=ui->volum->text().toFloat();
     float value=ui->value->text().toFloat();
-
-    refreshTime();
-    express temp=express(consigner,consignee,name, weight,volume,value,*dataOperation::systemTime);
+    express temp=express(consigner,consignee,name, weight,volume,value,refreshTime());
     dataOperation::allExpress.push_back(temp);
     string expbill=temp.getExpressBill();
     //fix:快递单显示到只读文本框

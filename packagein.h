@@ -2,7 +2,7 @@
 #define PACKAGEIN_H
 
 #include <QWidget>
-
+#include"date.h"
 namespace Ui {
 class packagein;
 }
@@ -26,6 +26,6 @@ signals:
 private:
     Ui::packagein *ui;
 };
-void refreshTime();
+date refreshTime();
 
 #endif // PACKAGEIN_H
