@@ -20,7 +20,6 @@ expresspay::expresspay(QWidget *parent) :
 void expresspay::refresh()
 {
     ItemModel->clear();
-    QString result;
     allUnpaidExpress=dataOperation::getAllUnpaidExpress();
     for(express* e : allUnpaidExpress)
     {

@@ -32,5 +32,4 @@ void unpaidquery::refresh()
        result=result+( QString::fromStdString(e->getExpressBill())+"\n");
     }
     ui->textEdit->setText(result);
-    //fix:查询所有未支付快递，显示在文本框中
 }

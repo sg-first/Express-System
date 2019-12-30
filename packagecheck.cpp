@@ -24,9 +24,8 @@ void packagecheck::on_pushButton_clicked()
 
 void packagecheck::refresh()
 {
-    auto tup=dataOperation::packageStockTaking();
     int yi,wei;
-    tie(yi,wei)=tup;
+    tie(yi,wei)=dataOperation::packageStockTaking();
     ui->lcdNumber->display(yi);
     ui->lcdNumber_2->display(wei);
 }

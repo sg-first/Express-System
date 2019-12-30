@@ -16,6 +16,7 @@ expressmail::expressmail(QWidget *parent) :
     zhifu=new payment;
     ui->setupUi(this);
     connect(displayBill,SIGNAL(showpay()),this,SLOT(_showpay()));
+
     ui->fahuo->setPlaceholderText("输入发货人");
     ui->shouhuo->setPlaceholderText("输入收货人");
     ui->name->setPlaceholderText("输入名字");
@@ -30,7 +31,7 @@ expressmail::~expressmail()
     delete ui;
 }
 
-void expressmail::on_pushButton_clicked()
+void expressmail::on_clear_clicked()
 {
     ui->fahuo->clear();
     ui->shouhuo->clear();
@@ -53,6 +54,7 @@ void expressmail::on_confirm_clicked()
         QMessageBox::information(this,"提示","请填写信息",QMessageBox::Ok);
         return;
     }
+
     string consigner=ui->fahuo->text().toStdString();
     string consignee=ui->shouhuo->text().toStdString();
     string name=ui->name->text().toStdString();
@@ -60,19 +62,11 @@ void expressmail::on_confirm_clicked()
     float volume=ui->volum->text().toFloat();
     float value=ui->value->text().toFloat();
     dataOperation::allExpress.push_back(express(consigner,consignee,name, weight,volume,value,help::refreshTime()));
-    ui->fahuo->clear();
-    ui->shouhuo->clear();
-    ui->name->clear();
-    ui->value->clear();
-    ui->volum->clear();
-    ui->weight->clear();
+    on_clear_clicked();
+
     express *e=&dataOperation::allExpress.back();
     zhifu->show(e);
     string expbill=e->getExpressBill();
     displayBill->show(QString::fromStdString(expbill));
 }
 
-/*void expressmail::_showpay()
-{
-    zhifu->show();
-}*/

@@ -10,6 +10,7 @@
 #include"expressquery.h"
 #include"unpaidquery.h"
 #include"expresspay.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE

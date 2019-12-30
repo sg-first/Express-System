@@ -20,10 +20,9 @@ signals:
     void showMain();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_clear_clicked();
     void on_pushButton_3_clicked();
     void on_confirm_clicked();
-    //void _showpay(); //显示结款支付界面
 
 private:
     payment* zhifu;

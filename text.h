@@ -18,7 +18,6 @@ public:
     void show(QString txt);
 
 signals:
-     //void showpay(); //让父窗口显示结款支付界面
 
 private slots:
     void on_pushButton_clicked();

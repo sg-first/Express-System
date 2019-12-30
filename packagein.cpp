@@ -28,7 +28,7 @@ packagein::~packagein()
     delete ui;
 }
 
-void packagein::on_pushButton_clicked()
+void packagein::on_clear_clicked()
 {
     ui->number->clear();
     ui->fahuo->clear();
@@ -50,13 +50,7 @@ void packagein::on_confirm_clicked()
     float value=ui->value->text().toFloat();
     package temp=package(courierNumber,consigner,consignee,name, weight,volume,value,help::refreshTime());
     dataOperation::allPackage.push_back(temp);
-    ui->number->clear();
-    ui->fahuo->clear();
-    ui->shouhuo->clear();
-    ui->name->clear();
-    ui->value->clear();
-    ui->weight->clear();
-    ui->volume->clear();
+    on_clear_clicked();
     help::msgbox(this,"取件码",help::toQStr(temp.getPickupCode()));
 }
 

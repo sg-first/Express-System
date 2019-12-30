@@ -31,11 +31,10 @@ void expressquery::on_query_clicked()
     if(e==nullptr)
     {
         QMessageBox::information(this,"提示","没查到指定物流");
-        return;
     }
-    else{
-    string result=e->getLogisticsInformation();
-    //fix:使用只读文本框展示
-    ui->textEdit->setText(QString::fromStdString(result));
+    else
+    {
+        string result=e->getLogisticsInformation();
+        ui->textEdit->setText(QString::fromStdString(result));
     }
 }
