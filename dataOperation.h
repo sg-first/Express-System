@@ -45,7 +45,7 @@ public:
         list<express*> result;
         for(express &p : allExpress)
         {
-            if(p.getIsPaid())
+            if(!p.getIsPaid())
                 result.push_back(&p);
         }
         return result;

@@ -40,7 +40,7 @@ private:
 	int _getDay()
 	{
 		int dd = knowday->dvalue(*this);
-		if (dd % 7 == 5 && dd % 7 == 6)
+        if (dd % 7 == 5|| dd % 7 == 6)
 		{
 			this->weekday = 2 + dd % 7 - 7;
 		}

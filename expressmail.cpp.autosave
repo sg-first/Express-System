@@ -4,7 +4,7 @@
 #include"express.h"
 #include"dataOperation.h"
 #include<QMessageBox>
-
+#include"payment.h"
 expressmail::expressmail(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::expressmail)
@@ -55,6 +55,10 @@ void expressmail::on_confirm_clicked()
     auto t=refreshTime();
     express temp=express(consigner,consignee,name, weight,volume,value,t);
     dataOperation::allExpress.push_back(temp);
+    pay=new payment;
+    pay->show();
+    QMessageBox::information(this,"提示","邮寄成功");
     string expbill=temp.getExpressBill();
+    
     //fix:快递单显示到只读文本框
 }

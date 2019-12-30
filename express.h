@@ -17,6 +17,7 @@ protected:
     float value;
 
 public:
+    expressBase() {}
     expressBase(string consignor, string consignee, string name, float weight, float volume, float value) :
         consignor(consignor), consignee(consignee), name(name), weight(weight), volume(volume), value(value) {}
     expressBase(string courierNumber,string consignor, string consignee, string name, float weight, float volume, float value) :
@@ -41,10 +42,11 @@ private:
     bool isPaid=false;
     string getCourierNumberFromNet(date sendingTime) //fix:
     {
-
+        return "";
     }
 
 public:
+    express() {}
     express(string _consignor, string _consignee, string _name, float _weight, float _volume, float _value, date sendingTime) :
         expressBase(_consignor,_consignee,_name,_weight,_volume,_value)
     {
@@ -80,8 +82,9 @@ private:
     bool isOutStock=false;
 
 public:
-    package(string courierNumber, string consignor, string consignee, string name, float weight, float volume, float value, date warehousingTime) :
-        expressBase(courierNumber, consignor,consignee,name,weight,volume,value), warehousingTime(warehousingTime)
+    package() {}
+    package(string _courierNumber, string _consignor, string _consignee, string _name, float _weight, float _volume, float _value, date warehousingTime) :
+        expressBase(_courierNumber, _consignor,_consignee,_name,_weight,_volume,_value), warehousingTime(warehousingTime)
     {
         int week= this->warehousingTime.getWeek();
         int day=warehousingTime.getDay();

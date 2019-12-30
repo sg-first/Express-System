@@ -25,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
     _expressmail=new expressmail();
     _expressquery=new expressquery();
     _unpaidquery=new unpaidquery();
+    _expresspay=new expresspay () ;
     connect(_packagein,SIGNAL(showMain()),this,SLOT(showMainshow()));
     connect(_packageout,SIGNAL(showMain()),this,SLOT(showMainshow()));
     connect(_packagequery,SIGNAL(showMain()),this,SLOT(showMainshow()));
@@ -32,6 +33,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(_expressmail,SIGNAL(showMain()),this,SLOT(showMainshow()));
     connect(_expressquery,SIGNAL(showMain()),this,SLOT(showMainshow()));
     connect(_unpaidquery,SIGNAL(showMain()),this,SLOT(showMainshow()));
+    connect(_expresspay,SIGNAL(showMain()),this,SLOT(showMainshow()));
 }
 
 MainWindow::~MainWindow()
@@ -110,7 +112,9 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *ev)
     {
         if(ev->type()==QEvent::MouseButtonPress)
         {
-
+           this->hide();
+            _expresspay->refresh();
+            _expresspay->show();
             return true;
         }
     }

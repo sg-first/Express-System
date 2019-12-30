@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     expressmail.cpp \
+    expresspay.cpp \
     expressquery.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -24,6 +25,7 @@ SOURCES += \
     packagein.cpp \
     packageout.cpp \
     packagequery.cpp \
+    payment.cpp \
     unpaidquery.cpp
 
 HEADERS += \
@@ -32,6 +34,7 @@ HEADERS += \
     error.h \
     express.h \
     expressmail.h \
+    expresspay.h \
     expressquery.h \
     help.h \
     mainwindow.h \
@@ -39,16 +42,19 @@ HEADERS += \
     packagein.h \
     packageout.h \
     packagequery.h \
+    payment.h \
     unpaidquery.h
 
 FORMS += \
     expressmail.ui \
+    expresspay.ui \
     expressquery.ui \
     mainwindow.ui \
     packagecheck.ui \
     packagein.ui \
     packageout.ui \
     packagequery.ui \
+    payment.ui \
     unpaidquery.ui
 
 # Default rules for deployment.
