@@ -27,7 +27,14 @@ void packagequery::on_query_clicked()
 {
     string code=ui->lineEdit->text().toStdString();
     package* pack=dataOperation::queryPackage(code);
+    if(pack==nullptr)
+    {
+        QMessageBox::information(this,"提示","没查到指定包裹");
+        return;
+    }
+    else{
     string result=pack->display();
      ui->textEdit->setText(QString::fromStdString(result));
+    }
     //fix:使用只读文本框展示
 }

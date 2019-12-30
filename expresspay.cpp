@@ -8,13 +8,13 @@ expresspay::expresspay(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::expresspay)
 {
+    zhifu=new payment();
     ItemModel=new QStandardItemModel();
     ui->setupUi(this);
     connect(ui->listView,SIGNAL(clicked(QModelIndex)),this,SLOT(showClick(QModelIndex)));
-
-    zhifu=new payment();
+    connect(zhifu,SIGNAL(fresh()),this,SLOT(refresh()));
     connect(zhifu,SIGNAL(showpay()),this,SLOT(_showpay()));
-    connect(zhifu,SIGNAL(callpay()),this,SLOT(_callpay()));
+
 }
 
 void expresspay::refresh()
@@ -24,21 +24,16 @@ void expresspay::refresh()
     allUnpaidExpress=dataOperation::getAllUnpaidExpress();
     for(express* e : allUnpaidExpress)
     {
-      QStandardItem* item=new QStandardItem ( QString::fromStdString(e->getExpressBill()));
-      ItemModel->appendRow(item);
+        QStandardItem* item=new QStandardItem ( QString::fromStdString(e->getExpressBill()));
+        ItemModel->appendRow(item);
     }
     ui->listView->setModel(ItemModel);
 }
 
 void expresspay::showClick(QModelIndex Index)
 {
-    list<express*>::iterator iter;
-    for (int i=1;i<Index.row();i++)
-    {
-        iter++;
-    }
-    this->hide();
-    zhifu->selectExpress=*iter;
+
+    zhifu->selectExpress=allUnpaidExpress[Index.row()];
     zhifu->show();
 }
 

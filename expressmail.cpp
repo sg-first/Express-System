@@ -4,18 +4,23 @@
 #include"express.h"
 #include"dataOperation.h"
 #include<QMessageBox>
-
+#include"payment.h"
+#include"text.h"
 expressmail::expressmail(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::expressmail)
 {
+    xianshi=new text ();
+    zhifu=new payment();
     ui->setupUi(this);
+    connect(xianshi,SIGNAL(showpay()),this,SLOT(_showpay()));
     ui->fahuo->setPlaceholderText("输入发货人");
     ui->shouhuo->setPlaceholderText("输入收货人");
     ui->name->setPlaceholderText("输入名字");
     ui->value->setPlaceholderText("输入价格");
     ui->volum->setPlaceholderText("输入体积");
     ui->weight->setPlaceholderText("输入重量");
+    this->setWindowTitle("快递邮寄");
 }
 
 expressmail::~expressmail()
@@ -52,9 +57,21 @@ void expressmail::on_confirm_clicked()
     float weight=ui->weight->text().toFloat();
     float volume=ui->volum->text().toFloat();
     float value=ui->value->text().toFloat();
-    auto t=refreshTime();
-    express temp=express(consigner,consignee,name, weight,volume,value,t);
-    dataOperation::allExpress.push_back(temp);
-    string expbill=temp.getExpressBill();
-    //fix:快递单显示到只读文本框
+    dataOperation::allExpress.push_back(express(consigner,consignee,name, weight,volume,value,refreshTime()));
+    ui->fahuo->clear();
+    ui->shouhuo->clear();
+    ui->name->clear();
+    ui->value->clear();
+    ui->volum->clear();
+    ui->weight->clear();
+    express *e=&dataOperation::allExpress.back();
+    auto ll=dataOperation::allExpress;
+    zhifu->selectExpress=e;
+    string expbill=e->getExpressBill();
+    xianshi->setTXT(QString::fromStdString(expbill));
+    xianshi->show();
+}
+void expressmail::_showpay()
+{
+    zhifu->show();
 }

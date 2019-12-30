@@ -26,6 +26,7 @@ SOURCES += \
     packageout.cpp \
     packagequery.cpp \
     payment.cpp \
+    text.cpp \
     unpaidquery.cpp
 
 HEADERS += \
@@ -43,6 +44,7 @@ HEADERS += \
     packageout.h \
     packagequery.h \
     payment.h \
+    text.h \
     unpaidquery.h
 
 FORMS += \
@@ -55,6 +57,7 @@ FORMS += \
     packageout.ui \
     packagequery.ui \
     payment.ui \
+    text.ui \
     unpaidquery.ui
 
 # Default rules for deployment.

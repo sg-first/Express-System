@@ -1,6 +1,7 @@
 #pragma once
 #include "express.h"
 #include <tuple>
+#include <vector>
 using namespace std;
 
 class dataOperation
@@ -40,9 +41,9 @@ public:
         return make_tuple(outStockNum,allPackage.size()-outStockNum);
     }
 
-    static list<express*> getAllUnpaidExpress()
+    static vector<express*> getAllUnpaidExpress()
     {
-        list<express*> result;
+        vector<express*> result;
         for(express &p : allExpress)
         {
             if(!p.getIsPaid())

@@ -8,6 +8,7 @@ unpaidquery::unpaidquery(QWidget *parent) :
     ui(new Ui::unpaidquery)
 {
     ui->setupUi(this);
+    ui->textEdit->setReadOnly(true);
 }
 
 unpaidquery::~unpaidquery()
@@ -24,7 +25,7 @@ void unpaidquery::on_pushButton_clicked()
 void unpaidquery::refresh()
 {
     QString result;
-    list<express*> l1=dataOperation::getAllUnpaidExpress();
+    vector<express*> l1=dataOperation::getAllUnpaidExpress();
     for(express* e : l1)
     {
        result=result+( QString::fromStdString(e->getExpressBill())+"\n");

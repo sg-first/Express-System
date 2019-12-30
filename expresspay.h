@@ -20,15 +20,14 @@ public:
     ~expresspay();
     QStringListModel *Model;
     QStandardItemModel *ItemModel;
-    list<express*> allUnpaidExpress;
+    vector<express*> allUnpaidExpress;
     payment* zhifu;
+
+public slots:
     void refresh();
 
 signals:
     void showMain();
-
-public slots:
-    void _callpay();
 
 private:
     Ui::expresspay *ui;

@@ -27,7 +27,14 @@ void expressquery::on_query_clicked()
 {
     string code=ui->lineEdit->text().toStdString();
     express* e=dataOperation::queryExpress(code);
+    if(e==nullptr)
+    {
+        QMessageBox::information(this,"提示","没查到指定物流");
+        return;
+    }
+    else{
     string result=e->getLogisticsInformation();
     //fix:使用只读文本框展示
     ui->textEdit->setText(QString::fromStdString(result));
+    }
 }

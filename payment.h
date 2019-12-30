@@ -15,10 +15,10 @@ public:
     explicit payment(QWidget *parent = nullptr);
     ~payment();
     express* selectExpress;
+    //void show();
 
-signals:
-    void showpay();
-    void callpay();
+public :signals:
+    void fresh();
 
 private slots:
     void on_pushButton_clicked();
