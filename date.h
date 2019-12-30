@@ -40,7 +40,7 @@ private:
 	int _getDay()
 	{
 		int dd = knowday->dvalue(*this);
-        if (dd % 7 == 5|| dd % 7 == 6)
+		if (dd % 7 == 5 && dd % 7 == 6)
 		{
 			this->weekday = 2 + dd % 7 - 7;
 		}
@@ -76,7 +76,7 @@ public:
 		min = 0;
 	}
 
-	date(int year,int month,int day,int hour,int min):year(year),month(month),day(day),hour(hour),min(min)
+	date(int year, int month, int day, int hour, int min) :year(year), month(month), day(day), hour(hour), min(min)
 	{
 		this->_getDay();
 		this->_getWeek();
@@ -88,8 +88,6 @@ public:
 	{
 		return to_string(hour) + to_string(min);
 	}
-
-	date(const date &d) : year(d.year), month(d.month), day(d.day){}
 
 	void reSet(int year, int month, int day, int hour, int min)
 	{
@@ -105,7 +103,7 @@ public:
 	string toString()
 	{
 		return to_string(year) + "年" + to_string(month) + "月" + to_string(day) + "日" + to_string(hour) + "时" + to_string(min) + "分"
-			+ "第" + to_string(week) + "周" +"星期"+ to_string(weekday);
+			+ "第" + to_string(week) + "周" + "星期" + to_string(weekday);
 	}
 
 	void nextMonth()
@@ -166,6 +164,6 @@ public:
 
 	int getDay() { return this->weekday; }
 	int getWeek() { return this->week; }
-	
+
 	static date *knowday;
 };
