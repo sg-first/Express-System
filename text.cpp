@@ -6,6 +6,7 @@ text::text(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->textEdit->setReadOnly(true);
+    this->setWindowTitle("快递驿站系统");
 }
 
 void text::setTXT(QString txt)

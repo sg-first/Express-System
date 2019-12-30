@@ -9,6 +9,7 @@ unpaidquery::unpaidquery(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->textEdit->setReadOnly(true);
+    this->setWindowTitle("快递驿站系统");
 }
 
 unpaidquery::~unpaidquery()

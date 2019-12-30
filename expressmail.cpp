@@ -20,7 +20,7 @@ expressmail::expressmail(QWidget *parent) :
     ui->value->setPlaceholderText("输入价格");
     ui->volum->setPlaceholderText("输入体积");
     ui->weight->setPlaceholderText("输入重量");
-    this->setWindowTitle("快递邮寄");
+    this->setWindowTitle("快递驿站系统");
 }
 
 expressmail::~expressmail()

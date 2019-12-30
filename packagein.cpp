@@ -13,6 +13,7 @@ packagein::packagein(QWidget *parent) :
     ui(new Ui::packagein)
 {
     ui->setupUi(this);
+    this->setWindowTitle("快递驿站系统");
     ui->number->setPlaceholderText("请输入快递单号");
     ui->fahuo->setPlaceholderText("请输入发货人");
     ui->shouhuo->setPlaceholderText("请输入收货人");

@@ -6,6 +6,7 @@ payment::payment(QWidget *parent) :
     ui(new Ui::payment)
 {
     ui->setupUi(this);
+    this->setWindowTitle("快递驿站系统");
 }
 
 payment::~payment()

@@ -10,6 +10,7 @@ packagequery::packagequery(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->lineEdit->setPlaceholderText("请输入取件码");
+    this->setWindowTitle("快递驿站系统");
 }
 
 packagequery::~packagequery()

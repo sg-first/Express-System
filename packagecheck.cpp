@@ -7,6 +7,7 @@ packagecheck::packagecheck(QWidget *parent) :
     ui(new Ui::packagecheck)
 {
     ui->setupUi(this);
+    this->setWindowTitle("快递驿站系统");
 }
 
 packagecheck::~packagecheck()

@@ -10,6 +10,7 @@ packageout::packageout(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::packageout)
 {
+    this->setWindowTitle("快递驿站系统");
     ui->setupUi(this);
     ui->lineEdit->setPlaceholderText("请输入取件码");
 }

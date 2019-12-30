@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setWindowTitle("快递驿站系统");
     ui->label_2->installEventFilter(this);
     ui->label_4->installEventFilter(this);
     ui->label_3->installEventFilter(this);

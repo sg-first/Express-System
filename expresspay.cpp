@@ -14,7 +14,7 @@ expresspay::expresspay(QWidget *parent) :
     connect(ui->listView,SIGNAL(clicked(QModelIndex)),this,SLOT(showClick(QModelIndex)));
     connect(zhifu,SIGNAL(fresh()),this,SLOT(refresh()));
     connect(zhifu,SIGNAL(showpay()),this,SLOT(_showpay()));
-
+    this->setWindowTitle("快递驿站系统");
 }
 
 void expresspay::refresh()
