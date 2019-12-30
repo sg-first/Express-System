@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include"date.h"
+
 namespace Ui {
 class packagein;
 }
@@ -26,6 +27,5 @@ signals:
 private:
     Ui::packagein *ui;
 };
-date refreshTime();
 
 #endif // PACKAGEIN_H

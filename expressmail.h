@@ -14,9 +14,7 @@ class expressmail : public QWidget
 
 public:
     explicit expressmail(QWidget *parent = nullptr);
-    payment* zhifu;
     ~expressmail();
-    text* xianshi;
 
 signals:
     void showMain();
@@ -25,8 +23,11 @@ private slots:
     void on_pushButton_clicked();
     void on_pushButton_3_clicked();
     void on_confirm_clicked();
-    void _showpay();
- private:
+    //void _showpay(); //显示结款支付界面
+
+private:
+    payment* zhifu;
+    text* displayBill;
     Ui::expressmail *ui;
 };
 

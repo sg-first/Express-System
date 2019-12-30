@@ -14,10 +14,12 @@ class packagecheck : public QWidget
 public:
     explicit packagecheck(QWidget *parent = nullptr);
     ~packagecheck();
-    void refresh();
 
 signals:
     void showMain();
+
+public slots:
+    void refresh();
 
 private slots:
     void on_pushButton_clicked();

@@ -1,19 +1,21 @@
 #include "expressmail.h"
 #include "ui_expressmail.h"
-#include"packagein.h"
-#include"express.h"
-#include"dataOperation.h"
-#include<QMessageBox>
-#include"payment.h"
-#include"text.h"
+#include "packagein.h"
+#include "express.h"
+#include "dataOperation.h"
+#include <QMessageBox>
+#include "payment.h"
+#include "text.h"
+#include "help.h"
+
 expressmail::expressmail(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::expressmail)
 {
-    xianshi=new text ();
-    zhifu=new payment();
+    displayBill=new text;
+    zhifu=new payment;
     ui->setupUi(this);
-    connect(xianshi,SIGNAL(showpay()),this,SLOT(_showpay()));
+    connect(displayBill,SIGNAL(showpay()),this,SLOT(_showpay()));
     ui->fahuo->setPlaceholderText("输入发货人");
     ui->shouhuo->setPlaceholderText("输入收货人");
     ui->name->setPlaceholderText("输入名字");
@@ -57,7 +59,7 @@ void expressmail::on_confirm_clicked()
     float weight=ui->weight->text().toFloat();
     float volume=ui->volum->text().toFloat();
     float value=ui->value->text().toFloat();
-    dataOperation::allExpress.push_back(express(consigner,consignee,name, weight,volume,value,refreshTime()));
+    dataOperation::allExpress.push_back(express(consigner,consignee,name, weight,volume,value,help::refreshTime()));
     ui->fahuo->clear();
     ui->shouhuo->clear();
     ui->name->clear();
@@ -65,13 +67,12 @@ void expressmail::on_confirm_clicked()
     ui->volum->clear();
     ui->weight->clear();
     express *e=&dataOperation::allExpress.back();
-    auto ll=dataOperation::allExpress;
-    zhifu->selectExpress=e;
+    zhifu->show(e);
     string expbill=e->getExpressBill();
-    xianshi->setTXT(QString::fromStdString(expbill));
-    xianshi->show();
+    displayBill->show(QString::fromStdString(expbill));
 }
-void expressmail::_showpay()
+
+/*void expressmail::_showpay()
 {
     zhifu->show();
-}
+}*/

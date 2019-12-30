@@ -48,7 +48,7 @@ void packagein::on_confirm_clicked()
     float weight=ui->weight->text().toFloat();
     float volume=ui->volume->text().toFloat();
     float value=ui->value->text().toFloat();
-    package temp=package(courierNumber,consigner,consignee,name, weight,volume,value,refreshTime());
+    package temp=package(courierNumber,consigner,consignee,name, weight,volume,value,help::refreshTime());
     dataOperation::allPackage.push_back(temp);
     ui->number->clear();
     ui->fahuo->clear();
@@ -58,18 +58,6 @@ void packagein::on_confirm_clicked()
     ui->weight->clear();
     ui->volume->clear();
     help::msgbox(this,"取件码",help::toQStr(temp.getPickupCode()));
-}
-
-date refreshTime()
-{
-    //fix:获取系统时间建议改成QT形式
-    QDateTime local(QDateTime::currentDateTime());
-    QString year=local.toString("yyyy");
-    QString month=local.toString("MM");
-    QString day=local.toString("dd");
-    QString hour=local.toString("hh");
-    QString minute=local.toString("mm");
-    return date(year.toInt(),month.toInt(),day.toInt(),hour.toInt(),minute.toInt());
 }
 
 void packagein::on_pushButton_3_clicked()

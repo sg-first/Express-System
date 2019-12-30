@@ -14,17 +14,17 @@ class payment : public QWidget
 public:
     explicit payment(QWidget *parent = nullptr);
     ~payment();
-    express* selectExpress;
-    //void show();
+    void show(express* selectExpress);
 
-public :signals:
-    void fresh();
+signals:
+    void fresh(); //触发刷新未付款列表
 
 private slots:
     void on_pushButton_clicked();
-    void on_pushButton_2_clicked();
+    void on_confirm_clicked();
 
 private:
+    express* selectExpress;
     Ui::payment *ui;
 };
 

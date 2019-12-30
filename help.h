@@ -3,6 +3,8 @@
 #include <QWidget>
 #include <QString>
 #include <string>
+#include "date.h"
+#include <QDateTime>
 using namespace std;
 
 class help
@@ -13,10 +15,16 @@ public:
         QMessageBox::information(w,title,content,QMessageBox::Ok);
     }
 
-    /*static void msgbox(QWidget* w,string title,string content)
-    {
-        msgbox(w,QString::fromStdString(title),QString::fromStdString(content));
-    }*/
-
     static QString toQStr(string str) { return QString::fromStdString(str); }
+
+    static date refreshTime()
+    {
+        QDateTime local(QDateTime::currentDateTime());
+        QString year=local.toString("yyyy");
+        QString month=local.toString("MM");
+        QString day=local.toString("dd");
+        QString hour=local.toString("hh");
+        QString minute=local.toString("mm");
+        return date(year.toInt(),month.toInt(),day.toInt(),hour.toInt(),minute.toInt());
+    }
 };

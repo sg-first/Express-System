@@ -9,9 +9,10 @@ text::text(QWidget *parent) :
     this->setWindowTitle("快递驿站系统");
 }
 
-void text::setTXT(QString txt)
+void text::show(QString txt)
 {
     ui->textEdit->setText(txt);
+    this->QWidget::show();
 }
 
 text::~text()
@@ -24,8 +25,8 @@ void text::on_pushButton_clicked()
     this->close();
 }
 
-void text::on_pushButton_2_clicked()
+void text::on_pay_clicked()
 {
     this->close();
-    emit showpay();
+    //emit showpay();
 }

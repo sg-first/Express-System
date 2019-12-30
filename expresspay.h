@@ -18,10 +18,6 @@ class expresspay : public QWidget
 public:
     explicit expresspay(QWidget *parent = nullptr);
     ~expresspay();
-    QStringListModel *Model;
-    QStandardItemModel *ItemModel;
-    vector<express*> allUnpaidExpress;
-    payment* zhifu;
 
 public slots:
     void refresh();
@@ -33,10 +29,15 @@ private:
     Ui::expresspay *ui;
 
 private slots:
-    void showClick(QModelIndex index);
-    void on_pushButton_6_clicked();
+    void clickItem(QModelIndex index);
+    void on_pushButton_clicked();
     void _showpay();
 
+private:
+    QStringListModel *Model;
+    QStandardItemModel *ItemModel;
+    vector<express*> allUnpaidExpress;
+    payment* zhifu;
 };
 
 #endif // EXPRESSPAY_H

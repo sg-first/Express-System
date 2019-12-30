@@ -20,16 +20,15 @@ void payment::on_pushButton_clicked()
 
 }
 
-void payment::on_pushButton_2_clicked()
+void payment::on_confirm_clicked()
 {
     this->selectExpress->pay();
     emit fresh();
     this->hide();
 }
 
-/*void payment::show()
+void payment::show(express* selectExpress)
 {
-    this->setWindowFlags(this->windowFlags() | Qt::Dialog);
-    this->setWindowModality(Qt::ApplicationModal);
+    this->selectExpress=selectExpress;
     this->QWidget::show();
-}*/
+}

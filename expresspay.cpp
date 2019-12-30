@@ -11,7 +11,7 @@ expresspay::expresspay(QWidget *parent) :
     zhifu=new payment();
     ItemModel=new QStandardItemModel();
     ui->setupUi(this);
-    connect(ui->listView,SIGNAL(clicked(QModelIndex)),this,SLOT(showClick(QModelIndex)));
+    connect(ui->listView,SIGNAL(clicked(QModelIndex)),this,SLOT(clickItem(QModelIndex)));
     connect(zhifu,SIGNAL(fresh()),this,SLOT(refresh()));
     connect(zhifu,SIGNAL(showpay()),this,SLOT(_showpay()));
     this->setWindowTitle("快递驿站系统");
@@ -30,11 +30,9 @@ void expresspay::refresh()
     ui->listView->setModel(ItemModel);
 }
 
-void expresspay::showClick(QModelIndex Index)
+void expresspay::clickItem(QModelIndex Index)
 {
-
-    zhifu->selectExpress=allUnpaidExpress[Index.row()];
-    zhifu->show();
+    zhifu->show(allUnpaidExpress[Index.row()]);
 }
 
 void expresspay::_showpay()
@@ -47,7 +45,7 @@ expresspay::~expresspay()
     delete ui;
 }
 
-void expresspay::on_pushButton_6_clicked()
+void expresspay::on_pushButton_clicked()
 {
     this->hide();
     emit showMain();

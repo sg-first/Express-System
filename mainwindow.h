@@ -22,6 +22,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     bool eventFilter(QObject *obj,QEvent *ev);
     ~MainWindow();
+
+public slots:
+    void showMainshow();
+
+private:
+    Ui::MainWindow *ui;
     packagein* _packagein;
     packageout* _packageout;
     packagequery* _packagequery;
@@ -30,10 +36,5 @@ public:
     expressquery* _expressquery;
     unpaidquery* _unpaidquery;
     expresspay* _expresspay;
-public slots:
-    void showMainshow();
-
-private:
-    Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H

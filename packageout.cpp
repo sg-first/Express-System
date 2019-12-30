@@ -33,15 +33,8 @@ void packageout::on_confirmOut_clicked()
     package *pack=dataOperation::queryPackage(code);
     if(pack!=nullptr)
     {
-        refreshTime();
-        pack->outStock(refreshTime());
+        pack->outStock(help::refreshTime());
         help::msgbox(this,"包裹信息",qsCode+"出库成功");
-        /*string result=pack->display();
-        auto jj=QMessageBox::information(this,"包裹信息",QString::fromStdString(result),QMessageBox::Ok|QMessageBox::Cancel);
-        if(jj==QMessageBox::Ok)
-        {
-
-        }*/
     }
     else
         help::msgbox(this,"包裹信息","该包裹不存在");
