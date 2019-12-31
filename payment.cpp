@@ -32,3 +32,8 @@ void payment::show(express* selectExpress)
     this->selectExpress=selectExpress;
     this->QWidget::show();
 }
+
+void payment::setSelectExpress(express* selectExpress)
+{
+    this->selectExpress=selectExpress;
+}

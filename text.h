@@ -18,6 +18,7 @@ public:
     void show(QString txt);
 
 signals:
+     void showpay();
 
 private slots:
     void on_pushButton_clicked();

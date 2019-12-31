@@ -15,6 +15,7 @@ public:
     explicit payment(QWidget *parent = nullptr);
     ~payment();
     void show(express* selectExpress);
+    void setSelectExpress(express *selectExpress);
 
 signals:
     void fresh(); //触发刷新未付款列表

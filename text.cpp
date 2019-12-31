@@ -28,5 +28,5 @@ void text::on_pushButton_clicked()
 void text::on_pay_clicked()
 {
     this->close();
-    //emit showpay();
+    emit showpay();
 }

@@ -65,8 +65,12 @@ void expressmail::on_confirm_clicked()
     on_clear_clicked();
 
     express *e=&dataOperation::allExpress.back();
-    zhifu->show(e);
+    zhifu->setSelectExpress(e);
     string expbill=e->getExpressBill();
     displayBill->show(QString::fromStdString(expbill));
 }
 
+void expressmail::_showpay()
+{
+    zhifu->QWidget::show();
+}
