@@ -22,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->label_7->installEventFilter(this);
     ui->label_8->installEventFilter(this);
     ui->label_9->installEventFilter(this);
+    ui->label->installEventFilter(this);
     _packagein=new packagein();
     _packageout=new packageout();
     _packagequery=new packagequery();
@@ -30,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
     _expressquery=new expressquery();
     _unpaidquery=new unpaidquery();
     _expresspay=new expresspay () ;
+    _entryerror=new entryerror ();
     connect(_packagein,SIGNAL(showMain()),this,SLOT(showMainshow()));
     connect(_packageout,SIGNAL(showMain()),this,SLOT(showMainshow()));
     connect(_packagequery,SIGNAL(showMain()),this,SLOT(showMainshow()));
@@ -38,6 +40,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(_expressquery,SIGNAL(showMain()),this,SLOT(showMainshow()));
     connect(_unpaidquery,SIGNAL(showMain()),this,SLOT(showMainshow()));
     connect(_expresspay,SIGNAL(showMain()),this,SLOT(showMainshow()));
+    connect(_entryerror,SIGNAL(showMain()),this,SLOT(showMainshow()));
 }
 
 MainWindow::~MainWindow()
@@ -119,6 +122,15 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *ev)
            this->hide();
             _expresspay->refresh();
             _expresspay->show();
+            return true;
+        }
+    }
+    else if(obj==ui->label)
+    {
+        if(ev->type()==QEvent::MouseButtonPress)
+        {
+           this->hide();
+           _entryerror->show();
             return true;
         }
     }

@@ -10,7 +10,7 @@
 #include"expressquery.h"
 #include"unpaidquery.h"
 #include"expresspay.h"
-
+#include"entryerror.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -37,5 +37,6 @@ private:
     expressquery* _expressquery;
     unpaidquery* _unpaidquery;
     expresspay* _expresspay;
+    entryerror* _entryerror;
 };
 #endif // MAINWINDOW_H

@@ -16,11 +16,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    entryerror.cpp \
     expressmail.cpp \
     expresspay.cpp \
     expressquery.cpp \
     main.cpp \
     mainwindow.cpp \
+    misinput.cpp \
     packagecheck.cpp \
     packagein.cpp \
     packageout.cpp \
@@ -32,6 +34,7 @@ SOURCES += \
 HEADERS += \
     dataOperation.h \
     date.h \
+    entryerror.h \
     error.h \
     express.h \
     expressmail.h \
@@ -39,6 +42,7 @@ HEADERS += \
     expressquery.h \
     help.h \
     mainwindow.h \
+    misinput.h \
     packagecheck.h \
     packagein.h \
     packageout.h \
@@ -48,10 +52,12 @@ HEADERS += \
     unpaidquery.h
 
 FORMS += \
+    entryerror.ui \
     expressmail.ui \
     expresspay.ui \
     expressquery.ui \
     mainwindow.ui \
+    misinput.ui \
     packagecheck.ui \
     packagein.ui \
     packageout.ui \

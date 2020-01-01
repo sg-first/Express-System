@@ -104,10 +104,12 @@ public:
     {
         string result=expressBase::getExpressBill();
         result+=this->pickupCode+"\n"+
-                this->warehousingTime.toString()+"\n"+
-                this->outgoingTime.toString()+"\n";
+                this->warehousingTime.toString()+"\n";
         if(this->isOutStock)
+        {
+            this->outgoingTime.toString()+"\n";
             result+="已取件";
+        }
         else
             result+="未取件";
         if(this->isError())
