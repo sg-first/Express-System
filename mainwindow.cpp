@@ -4,11 +4,14 @@
 #include "QDebug"
 #include "express.h"
 #include"packagein.h"
-
+#include<QPainter>
+#include<QPixmap>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    QPainter painter(this);
+    painter.drawPixmap(0,0,width(),height(),QPixmap(":/bg.jpg"));
     ui->setupUi(this);
     this->setWindowTitle("快递驿站系统");
     ui->label_2->installEventFilter(this);
