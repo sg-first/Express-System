@@ -5,6 +5,8 @@
 #include <string>
 #include "date.h"
 #include <QDateTime>
+#include<QPalette>
+#include<QPixmap>
 using namespace std;
 
 class help
@@ -26,5 +28,14 @@ public:
         QString hour=local.toString("hh");
         QString minute=local.toString("mm");
         return date(year.toInt(),month.toInt(),day.toInt(),hour.toInt(),minute.toInt());
+    }
+
+    static void setBackground(QWidget *w,QString path)
+    {
+        QPalette pal=w->palette();
+        QPixmap pix=QPixmap(path);
+        pix=pix.scaled(QSize(358,600),Qt::KeepAspectRatio);
+        pal.setBrush(QPalette::Background,QBrush(pix));
+        w->setPalette(pal);
     }
 };

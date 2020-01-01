@@ -3,17 +3,16 @@
 #include "QMouseEvent"
 #include "QDebug"
 #include "express.h"
-#include"packagein.h"
-#include<QPainter>
-#include<QPixmap>
+#include "packagein.h"
+#include "help.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    QPainter painter(this);
-    painter.drawPixmap(0,0,width(),height(),QPixmap(":/bg.jpg"));
-    ui->setupUi(this);
+    help::setBackground(this,":/bg.jpg");
     this->setWindowTitle("快递驿站系统");
+    ui->setupUi(this);
     ui->label_2->installEventFilter(this);
     ui->label_4->installEventFilter(this);
     ui->label_3->installEventFilter(this);
