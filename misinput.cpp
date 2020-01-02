@@ -38,6 +38,11 @@ void misinput::on_pushButton_clicked()
                                ui->lineEdit_2->text().toStdString(),
                                ui->lineEdit_3->text().toStdString(),
                                ui->lineEdit_4->text().toStdString());
-     on_pushButton_3_clicked();
-     help::msgbox(this,"错误信息","错误信息已录入");
+     if(errorpackage->isError())
+     {
+         help::msgbox(this,"错误信息","错误信息已录入");
+         on_pushButton_3_clicked();
+     }
+     else
+         help::msgbox(this,"错误信息","请输入错误信息");
 }

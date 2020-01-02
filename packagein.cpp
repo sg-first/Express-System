@@ -48,7 +48,7 @@ void packagein::on_confirm_clicked()
     float weight=ui->weight->text().toFloat();
     float volume=ui->volume->text().toFloat();
     float value=ui->value->text().toFloat();
-    package temp=package(courierNumber,consigner,consignee,name, weight,volume,value,help::refreshTime());
+    package temp=package(courierNumber,consigner,consignee,name, weight,volume,value,help::refreshTime(),dataOperation::allPackage.size());
     dataOperation::allPackage.push_back(temp);
     on_clear_clicked();
     help::msgbox(this,"取件码",help::toQStr(temp.getPickupCode()));
