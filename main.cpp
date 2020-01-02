@@ -14,9 +14,9 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow w;
     dataOperation::init();
-    w.path="/data/app/save";
+    w.path="/storage/emulated/0/save"; //android保存
+    //w.path=QCoreApplication::applicationDirPath()+"/save"; //Windows保存
     w.show();
-    qDebug()<<w.path;
     return a.exec();
 }
 
