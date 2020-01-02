@@ -37,7 +37,7 @@
        <widget class="QLabel" name="package_2">
         <property name="font">
          <font>
-          <family>Arial</family>
+          <family>微软雅黑</family>
           <pointsize>30</pointsize>
          </font>
         </property>
@@ -60,6 +60,11 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+         </font>
+        </property>
         <property name="text">
          <string>包裹入库</string>
         </property>
@@ -72,6 +77,11 @@
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+         </font>
         </property>
         <property name="text">
          <string>包裹出库</string>
@@ -86,6 +96,11 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+         </font>
+        </property>
         <property name="text">
          <string>包裹查询</string>
         </property>
@@ -98,6 +113,11 @@
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+         </font>
         </property>
         <property name="text">
          <string>包裹盘点</string>
@@ -122,7 +142,7 @@
       </property>
       <property name="font">
        <font>
-        <family>Arial</family>
+        <family>微软雅黑</family>
         <pointsize>9</pointsize>
        </font>
       </property>
@@ -137,7 +157,7 @@
        <widget class="QLabel" name="express">
         <property name="font">
          <font>
-          <family>Arial</family>
+          <family>微软雅黑</family>
           <pointsize>30</pointsize>
          </font>
         </property>
@@ -157,6 +177,11 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+         </font>
+        </property>
         <property name="text">
          <string>快递邮寄</string>
         </property>
@@ -169,6 +194,11 @@
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+         </font>
         </property>
         <property name="text">
          <string>邮寄结款</string>
@@ -183,6 +213,11 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+         </font>
+        </property>
         <property name="text">
          <string>未付查询</string>
         </property>
@@ -196,12 +231,59 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+         </font>
+        </property>
         <property name="text">
          <string>物流查询</string>
         </property>
        </widget>
       </item>
      </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_10">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+       </font>
+      </property>
+      <property name="text">
+       <string>存储数据</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_11">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+       </font>
+      </property>
+      <property name="text">
+       <string>读取数据</string>
+      </property>
+     </widget>
     </item>
     <item>
      <spacer name="verticalSpacer_3">

@@ -5,8 +5,9 @@
 #include <string>
 #include "date.h"
 #include <QDateTime>
-#include<QPalette>
-#include<QPixmap>
+#include <QPalette>
+#include <QPixmap>
+#include <QLabel>
 using namespace std;
 
 class help
@@ -37,5 +38,21 @@ public:
         pix=pix.scaled(QSize(358,600),Qt::KeepAspectRatio);
         pal.setBrush(QPalette::Background,QBrush(pix));
         w->setPalette(pal);
+    }
+
+    static void setBackground(QWidget *w,QColor c)
+    {
+        QPalette pal=w->palette();
+        pal.setBrush(QPalette::Background,c);
+        w->setPalette(pal);
+    }
+
+    static void setLabelBackground(QLabel *l, QColor bg,QColor text)
+    {
+        QPalette palette_2;
+        palette_2.setColor(QPalette::Background,bg);
+        palette_2.setColor(QPalette::WindowText,text);
+        l->setAutoFillBackground(true);
+        l->setPalette(palette_2);
     }
 };

@@ -32,6 +32,7 @@ SOURCES += \
     unpaidquery.cpp
 
 HEADERS += \
+    binarySerialize.h \
     dataOperation.h \
     date.h \
     entryerror.h \

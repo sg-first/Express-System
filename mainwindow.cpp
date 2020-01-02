@@ -5,14 +5,32 @@
 #include "express.h"
 #include "packagein.h"
 #include "help.h"
+#include "binarySerialize.h"
+#include "dataOperation.h"
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    help::setBackground(this,":/bg.jpg");
+    help::setBackground(this,QString(":/bg_.png"));
     this->setWindowTitle("快递驿站系统");
     ui->setupUi(this);
+    help::setLabelBackground(ui->label_2,QColor(41,147,204),Qt::white);
+    help::setLabelBackground(ui->label_3,QColor(41,147,204),Qt::white);
+    help::setLabelBackground(ui->label_4,QColor(41,147,204),Qt::white);
+    help::setLabelBackground(ui->label_5,QColor(41,147,204),Qt::white);
+    help::setLabelBackground(ui->label_6,QColor(41,147,204),Qt::white);
+    help::setLabelBackground(ui->label_7,QColor(41,147,204),Qt::white);
+    help::setLabelBackground(ui->label_8,QColor(41,147,204),Qt::white);
+    help::setLabelBackground(ui->label_9,QColor(41,147,204),Qt::white);
+    help::setLabelBackground(ui->label,QColor(41,147,204),Qt::white);
+    help::setLabelBackground(ui->label_10,QColor(41,147,204),Qt::white);
+    help::setLabelBackground(ui->label_11,QColor(41,147,204),Qt::white);
+    QPalette pe;
+    pe.setColor(QPalette::WindowText,Qt::white);
+    ui->express->setPalette(pe);
+    ui->package_2->setPalette(pe);
     ui->label_2->installEventFilter(this);
     ui->label_4->installEventFilter(this);
     ui->label_3->installEventFilter(this);
@@ -21,7 +39,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->label_7->installEventFilter(this);
     ui->label_8->installEventFilter(this);
     ui->label_9->installEventFilter(this);
-    ui->label->installEventFilter(this);
+    ui->label->installEventFilter(this);\
+    ui->label_10->installEventFilter(this);
+    ui->label_11->installEventFilter(this);
     _packagein=new packagein();
     _packageout=new packageout();
     _packagequery=new packagequery();
@@ -130,6 +150,32 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *ev)
         {
            this->hide();
            _entryerror->show();
+            return true;
+        }
+    }
+    else if(obj==ui->label_10)
+    {
+        if(ev->type()==QEvent::MouseButtonPress)
+        {
+            bool save=binarySerialize::saveSTLObject<list<package>, package>(path.toStdString(), dataOperation::allPackage);
+            bool save2=binarySerialize::saveSTLObject<list<express>, express>(path.toStdString()+"2", dataOperation::allExpress);
+            if(save&&save2)
+                QMessageBox::information(this,"提示","未保存成功");
+            else
+                QMessageBox::information(this,"提示","保存成功");
+            return true;
+        }
+    }
+    else if(obj==ui->label_11)
+    {
+        if(ev->type()==QEvent::MouseButtonPress)
+        {
+            bool read=binarySerialize::loadSTLObject<list<package>, package>(path.toStdString(), dataOperation::allPackage);
+            bool read2=binarySerialize::loadSTLObject<list<express>, express>(path.toStdString()+"2", dataOperation::allExpress);
+            if(read&&read2)
+                QMessageBox::information(this,"提示","未读取成功");
+            else
+                QMessageBox::information(this,"提示","读取成功");
             return true;
         }
     }

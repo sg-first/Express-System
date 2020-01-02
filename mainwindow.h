@@ -11,6 +11,7 @@
 #include"unpaidquery.h"
 #include"expresspay.h"
 #include"entryerror.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -23,6 +24,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     bool eventFilter(QObject *obj,QEvent *ev);
     ~MainWindow();
+    QString path;
 
 public slots:
     void showMainshow();
