@@ -41,7 +41,7 @@
      <property name="font">
       <font>
        <family>Arial</family>
-       <pointsize>16</pointsize>
+       <pointsize>25</pointsize>
       </font>
      </property>
      <property name="text">
@@ -57,10 +57,16 @@
      <item row="0" column="0">
       <widget class="QLineEdit" name="number">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>100</height>
+        </size>
        </property>
        <property name="maximumSize">
         <size>
@@ -92,10 +98,16 @@
      <item row="2" column="0">
       <widget class="QLineEdit" name="fahuo">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>100</height>
+        </size>
        </property>
        <property name="maximumSize">
         <size>
@@ -127,10 +139,16 @@
      <item row="4" column="0">
       <widget class="QLineEdit" name="shouhuo">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>100</height>
+        </size>
        </property>
        <property name="maximumSize">
         <size>
@@ -162,10 +180,16 @@
      <item row="6" column="0">
       <widget class="QLineEdit" name="name">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>100</height>
+        </size>
        </property>
        <property name="maximumSize">
         <size>
@@ -197,10 +221,16 @@
      <item row="8" column="0">
       <widget class="QLineEdit" name="weight">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>100</height>
+        </size>
        </property>
        <property name="maximumSize">
         <size>
@@ -232,10 +262,16 @@
      <item row="10" column="0">
       <widget class="QLineEdit" name="volume">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+        <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>100</height>
+        </size>
        </property>
        <property name="maximumSize">
         <size>
@@ -267,10 +303,16 @@
      <item row="12" column="0">
       <widget class="QLineEdit" name="value">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>100</height>
+        </size>
        </property>
        <property name="maximumSize">
         <size>

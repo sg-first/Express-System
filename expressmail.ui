@@ -41,7 +41,7 @@
      <property name="font">
       <font>
        <family>Arial</family>
-       <pointsize>16</pointsize>
+       <pointsize>25</pointsize>
       </font>
      </property>
      <property name="text">
@@ -73,10 +73,16 @@
      <item>
       <widget class="QLineEdit" name="fahuo">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
          <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
+         <verstretch>100</verstretch>
         </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>100</height>
+        </size>
        </property>
        <property name="maximumSize">
         <size>
@@ -108,10 +114,16 @@
      <item>
       <widget class="QLineEdit" name="shouhuo">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
          <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
+         <verstretch>100</verstretch>
         </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>100</height>
+        </size>
        </property>
        <property name="maximumSize">
         <size>
@@ -143,10 +155,16 @@
      <item>
       <widget class="QLineEdit" name="name">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
          <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
+         <verstretch>100</verstretch>
         </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>100</height>
+        </size>
        </property>
        <property name="maximumSize">
         <size>
@@ -178,10 +196,16 @@
      <item>
       <widget class="QLineEdit" name="weight">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
          <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
+         <verstretch>100</verstretch>
         </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>100</height>
+        </size>
        </property>
        <property name="maximumSize">
         <size>
@@ -213,10 +237,16 @@
      <item>
       <widget class="QLineEdit" name="volum">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+        <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
          <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
+         <verstretch>100</verstretch>
         </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>100</height>
+        </size>
        </property>
        <property name="maximumSize">
         <size>
@@ -248,10 +278,16 @@
      <item>
       <widget class="QLineEdit" name="value">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
          <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
+         <verstretch>100</verstretch>
         </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>100</height>
+        </size>
        </property>
        <property name="maximumSize">
         <size>
