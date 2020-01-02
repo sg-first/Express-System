@@ -20,10 +20,10 @@ public:
     string getInform() { return this->inform; }
     string display()
     {
-        string result=this->receiptNumber+"\n"+
-                this->name+"\n"+
-                this->type+"\n"+
-                this->inform;
+        string result="回执单号:"+this->receiptNumber+"\n"+
+                "客户姓名:"+this->name+"\n"+
+                "差错类型:"+this->type+"\n"+
+                "错误信息:"+this->inform;
         return result;
     }
 };

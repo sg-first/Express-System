@@ -20,48 +20,48 @@ public:
     expressBase() {}
     expressBase(string consignor, string consignee, string name, float weight, float volume, float value) :
         consignor(consignor), consignee(consignee), name(name), weight(weight), volume(volume), value(value) {}
-    expressBase(string courierNumber,string consignor, string consignee, string name, float weight, float volume, float value) :
+    expressBase(string courierNumber, string consignor, string consignee, string name, float weight, float volume, float value) :
         courierNumber(courierNumber), consignor(consignor), consignee(consignee), name(name), weight(weight), volume(volume), value(value) {}
     string getCourierNumber() { return this->courierNumber; }
 
     string getExpressBill()
     {
-        return this->courierNumber+"\n"+
-                this->consignor+"\n"+
-                this->consignee+"\n"+
-                this->name+"\n"+
-                to_string(this->weight)+"\n"+
-                to_string(this->volume)+"\n"+
-                to_string(this->value)+"\n";
+        return "货运单号:"+this->courierNumber + "\n" +
+            "发件人:"+this->consignor + "\n" +
+            "收件人:"+this->consignee + "\n" +
+            "货物类型:"+this->name + "\n" +
+            "重量"+to_string(this->weight) + "\n" +
+            "体积:"+to_string(this->volume) + "\n" +
+            "价值:"+to_string(this->value) + "\n";
     }
 };
 
 class express : public expressBase
 {
 private:
-    bool isPaid=false;
+    bool isPaid = false;
     string getCourierNumberFromNet(date sendingTime) //fix:
     {
-        return "";
+        return "未连接到服务器";
     }
 
 public:
     express() {}
-    express(string _consignor, string _consignee, string _name, float _weight, float _volume, float _value, date sendingTime) :
-        expressBase(_consignor,_consignee,_name,_weight,_volume,_value)
+    express(string consignor, string consignee, string name, float weight, float volume, float value, date sendingTime) :
+        expressBase(consignor, consignee, name, weight, volume, value)
     {
-        this->courierNumber=this->getCourierNumberFromNet(sendingTime);
+        this->courierNumber = this->getCourierNumberFromNet(sendingTime);
     }
 
-    void pay() { this->isPaid=true; }
+    void pay() { this->isPaid = true; }
 
     string getExpressBill()
     {
-        string result=expressBase::getExpressBill();
-        if(this->isPaid)
-            result+="已支付";
+        string result = expressBase::getExpressBill();
+        if (this->isPaid)
+            result += "已支付";
         else
-            result+="未支付";
+            result += "未支付";
         return result;
     }
 
@@ -69,7 +69,7 @@ public:
 
     string getLogisticsInformation() //fix:
     {
-
+        return "未连接到服务器";
     }
 };
 
@@ -79,47 +79,44 @@ private:
     date warehousingTime;
     date outgoingTime;
     string pickupCode;
-    bool isOutStock=false;
+    bool isOutStock = false;
 
 public:
     package() {}
-    package(string _courierNumber, string _consignor, string _consignee, string _name, float _weight, float _volume, float _value, date warehousingTime) :
-        expressBase(_courierNumber, _consignor,_consignee,_name,_weight,_volume,_value), warehousingTime(warehousingTime)
+    package(string courierNumber, string consignor, string consignee, string name, float weight, float volume, float value, date warehousingTime, int size) :
+        expressBase(courierNumber, consignor, consignee, name, weight, volume, value), warehousingTime(warehousingTime)
     {
-        int week= this->warehousingTime.getWeek();
-        int day=warehousingTime.getDay();
-        string detailedTime=warehousingTime.getDetailedTime();
-        this->pickupCode=to_string(week)+"-"+to_string(day)+"-"+detailedTime;
+        int week = warehousingTime.getWeek();
+        int day = warehousingTime.getDay();
+        string detailedTime = warehousingTime.getDetailedTime();
+        this->pickupCode = to_string(week) + to_string(day) + "-" + detailedTime + "-" + to_string(size);
     }
 
     string getPickupCode() { return this->pickupCode; }
 
     void outStock(date outgoingTime)
     {
-        this->isOutStock=true;
-        this->outgoingTime=outgoingTime;
+        this->isOutStock = true;
+        this->outgoingTime = outgoingTime;
     }
 
     string display()
     {
-        string result=expressBase::getExpressBill();
-        result+=this->pickupCode+"\n"+
-                this->warehousingTime.toString()+"\n";
-        if(this->isOutStock)
-        {
-            this->outgoingTime.toString()+"\n";
-            result+="已取件";
-        }
+        string result = expressBase::getExpressBill();
+        result += "取件码:"+this->pickupCode + "\n" +
+            "入库时间:"+this->warehousingTime.toString() + "\n";
+        if (this->isOutStock)
+            result += "取件时间:"+this->outgoingTime.toString() + "\n";
         else
-            result+="未取件";
-        if(this->isError())
-            result+="差错信息:\n"+error.display();
+            result += "未取件";
+        if (this->isError())
+            result += "差错信息:\n" + error.display();
         return result;
     }
 
     bool getIsOutStock() { return this->isOutStock; }
 
     Error error;
-    bool isError() { return this->error.getReceiptNumber()!=""; }
+    bool isError() { return this->error.getReceiptNumber() != ""; }
 };
 

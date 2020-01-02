@@ -67,10 +67,16 @@ public:
     static bool loadSTLObject(string path, T& space)
     {
         int len;
+        T2 *arr;
         ifstream read(path + ".len");
-        read >> len;
-        read.close();
-        T2 *arr = new T2[len];
+        if(!read)
+            return false;
+        else
+        {
+            read >> len;
+            read.close();
+            arr = new T2[len];
+        }
 
         fstream infile(path, ios::ate|ios::out|ios::out|ios::binary); //以读方式打开文件
         if (!infile)
