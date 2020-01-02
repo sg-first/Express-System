@@ -160,9 +160,9 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *ev)
             bool save=binarySerialize::saveSTLObject<list<package>, package>(path.toStdString(), dataOperation::allPackage);
             bool save2=binarySerialize::saveSTLObject<list<express>, express>(path.toStdString()+"2", dataOperation::allExpress);
             if(save&&save2)
-                QMessageBox::information(this,"提示","未保存成功");
-            else
                 QMessageBox::information(this,"提示","保存成功");
+            else
+                QMessageBox::information(this,"提示","未保存成功");
             return true;
         }
     }
@@ -173,9 +173,9 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *ev)
             bool read=binarySerialize::loadSTLObject<list<package>, package>(path.toStdString(), dataOperation::allPackage);
             bool read2=binarySerialize::loadSTLObject<list<express>, express>(path.toStdString()+"2", dataOperation::allExpress);
             if(read&&read2)
-                QMessageBox::information(this,"提示","未读取成功");
-            else
                 QMessageBox::information(this,"提示","读取成功");
+            else
+                QMessageBox::information(this,"提示","未读取成功");
             return true;
         }
     }
