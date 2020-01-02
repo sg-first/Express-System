@@ -63,6 +63,12 @@ public:
         }
     }
 
+    static void creatFile(string path)
+    {
+        ofstream file(path, fstream::out);
+        file.close();
+    }
+
     template <class T, class T2>
     static bool loadSTLObject(string path, T& space)
     {
@@ -100,6 +106,10 @@ public:
     template <class T, class T2>
     static bool saveSTLObject(string path, T& content)
     {
+        //创建文件
+        creatFile(path);
+        creatFile(path+".len");
+
         int len = content.size();
         T2 *arr = new T2[len]; //T2类型需要支持空构造函数和拷贝
         //复制STL内容到数组
