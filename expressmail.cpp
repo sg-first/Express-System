@@ -52,7 +52,7 @@ void expressmail::on_confirm_clicked()
     if(ui->fahuo->text()==""||ui->shouhuo->text()==""||ui->name->text()==""||ui->weight->text()==""
             ||ui->volum->text()==""||ui->value->text()=="")
     {
-        QMessageBox::information(this,"提示","请填写信息",QMessageBox::Ok);
+        help::msgbox(this,"提示","请填写信息");
         return;
     }
 

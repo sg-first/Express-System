@@ -34,15 +34,22 @@ void misinput::on_pushButton_3_clicked()
 
 void misinput::on_pushButton_clicked()
 {
-     errorpackage->error=Error(ui->lineEdit->text().toStdString(),
-                               ui->lineEdit_2->text().toStdString(),
-                               ui->lineEdit_3->text().toStdString(),
-                               ui->lineEdit_4->text().toStdString());
-     if(errorpackage->isError())
-     {
-         help::msgbox(this,"错误信息","错误信息已录入");
-         on_pushButton_3_clicked();
-     }
-     else
-         help::msgbox(this,"错误信息","请输入错误信息");
+    Error newerror=Error(ui->lineEdit->text().toStdString(),
+                      ui->lineEdit_2->text().toStdString(),
+                      ui->lineEdit_3->text().toStdString(),
+                      ui->lineEdit_4->text().toStdString());
+    if(ui->lineEdit->text()!=""||ui->lineEdit_2->text()!=""||ui->lineEdit_3->text()!=""
+            ||ui->lineEdit_4->text()!="")
+    {
+        errorpackage->error=newerror;
+        help::msgbox(this,"提示","错误信息已录入");
+        on_pushButton_3_clicked();
+    }
+    else
+    {
+        int choose=QMessageBox::question(this, "提示","将清除错误信息，确认吗？",
+                                          QMessageBox::Yes | QMessageBox::No);
+        if(choose==QMessageBox::Yes)
+           errorpackage->error=newerror;
+    }
 }
